@@ -12,6 +12,7 @@ export class ServicioHabitacion{
 
     async buscarHabitacionPorId(){
         let habitacion=await modeloHabitacion.findById(id)
+        return habitacion
         
     }
 
@@ -20,9 +21,13 @@ export class ServicioHabitacion{
         return await datosValidados.save()
     }
 
-    async editarHabitacion(id,datos){
+    async editarHabitacion(id,datosConLosQueEdito){
 
-        return await modeloHabitacion.findByIdAndUpdate(id,datos)
+        return await modeloHabitacion.findByIdAndUpdate(id,datosConLosQueEdito)
+    }
+    async eliminarhabitacion(id){
+        return await modeloHabitacion.findByIdAndDelete(id)
+        
     }
 
 }

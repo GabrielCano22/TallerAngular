@@ -32,7 +32,6 @@ export class ServidorAPI{
     }
 
     activarBody(){
-        this.app.use(cors())
         this.app.use(express.json())
     }
 

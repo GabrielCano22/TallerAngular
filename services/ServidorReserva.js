@@ -7,8 +7,9 @@ export class ServidorReserva {
         return reservas
     }
 
-    async buscarReservaPorId(){
+    async buscarReservaPorId(id){
         let reserva = await modeloReservas.findById(id)
+        return reserva
     }
 
     async agregarReservasEnBd(datos){
@@ -18,5 +19,8 @@ export class ServidorReserva {
 
     async editarReserva(id,datos){
         return await modeloReservas.findByIdAndUpdate(id,datos)
+    }
+    async eliminarReserva(id){
+        return await modeloReservas.findByIdAndDelete(id)
     }
 }

@@ -31,6 +31,7 @@ export class ControladorHabitacion{
     async buscarHabitacionPorId(request,response){
         let id=request.params.idHabitacion //recibo id de la peticion
         let objetoServicioHabitacion=new ServicioHabitacion()
+        console.log('el id es: '+id)
         try{
 
             response.status(200).json({
@@ -54,8 +55,8 @@ export class ControladorHabitacion{
         let objetoServicioHabitacion=new ServicioHabitacion()
         
         try{
-           
-            if(datosHabitacion.numeroMaximoPersonas<8){
+            console.log(datosHabitacion)
+            if(datosHabitacion.numeroMaximoPersonas<=8){
 
                 await objetoServicioHabitacion.agregarHabitacionEnBD(datosHabitacion)
 
@@ -91,15 +92,15 @@ export class ControladorHabitacion{
         let datosHabitacion = request.body
 
         let objetoServicioHabitacion=new ServicioHabitacion()
-       
+        console.log(id,datosEditar)
 
         try{
 
-            await objetoServicioHabitacion.editarHabitacion(id,datosHabitacion)
+            await objetoServicioHabitacion.editarHabitacion(id,datosEditar)
 
             response.status(200).json({
-                "mensaje":"exito editando"+id,
-                "datos":null,
+                "mensaje":"exito editando a "+id,
+                "datos":datosEditar,
             })
 
         }catch(error){
@@ -114,24 +115,21 @@ export class ControladorHabitacion{
     async eliminarHabitacion(request,response){
 
         let id = request.params.idHabitacion
-        let datosHabitacion = request.body
-
         let objetoServicioHabitacion=new ServicioHabitacion()
        
-
         try{
 
-            await objetoServicioHabitacion.eliminarHabitacion(id,datosHabitacion)
+            await objetoServicioHabitacion.eliminarHabitacion(id)
 
             response.status(200).json({
-                "mensaje":"exito eliminando"+id,
+                "mensaje":"Exito eliminando",
                 "datos":null,
             })
 
         }catch(error){
 
             response.status(400).json({
-                "mensaje":"error eliminando "+error,
+                "mensaje":"Error eliminando "+error,
                 "datos":null,
             })
 

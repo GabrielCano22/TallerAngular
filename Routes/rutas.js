@@ -15,9 +15,9 @@ rutasPersonalizadas.put('/hotelesnick/habitacion/:idHabitacion',controladorHabit
 rutasPersonalizadas.delete('/hotelesnick/habitacion/:idHabitacion',controladorHabitacion.eliminarHabitacion)
 
 rutasPersonalizadas.get('/hotelesnick/reservas',controladorReserva.buscarReservas)
-rutasPersonalizadas.get('/hotelesnick/reserva/:idReserva',controladorHabitacion.buscarHabitacionPorId)
-rutasPersonalizadas.post('/hotelesnick/reserva',controladorHabitacion.registrarHabitacion)
-rutasPersonalizadas.put('/hotelesnick/reserva/:idHabitacion',controladorHabitacion.editarHabitacion)
-rutasPersonalizadas.delete('/hotelesnick/reserva/:idHabitacion',controladorHabitacion.eliminarHabitacion)
+rutasPersonalizadas.get('/hotelesnick/reserva/:idReserva',controladorReserva.buscarReservaPorId)
+rutasPersonalizadas.post('/hotelesnick/reserva',controladorReserva.registrarReserva)
+rutasPersonalizadas.put('/hotelesnick/reserva/:idHabitacion',controladorReserva.editarReserva)
+rutasPersonalizadas.delete('/hotelesnick/reserva/:idHabitacion',controladorReserva.eliminarReserva)
 
 

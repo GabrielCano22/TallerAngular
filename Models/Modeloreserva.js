@@ -29,7 +29,11 @@ const EsquemaReservas = new Schema({
     numeroNinos:{
         required:true,
         type:Number
-    },    
+    },   
+    costoReserva:{
+        require:false,
+        type:Numbrer
+    } 
 });
 
 export const modeloReservas = mongoose.model('reservas',EsquemaReservas)
